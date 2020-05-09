@@ -29,6 +29,8 @@ class OverlayPlane: SCNNode {
     func update(anchor :ARPlaneAnchor) {
         self.planeGeometry.width = CGFloat(anchor.extent.x);
         self.planeGeometry.height = CGFloat(anchor.extent.z);
+        let planeNode = self.childNodes.first!
+        planeNode.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: self.planeGeometry, options: nil))
         self.position = SCNVector3Make(anchor.center.x, 0, anchor.center.z)
     }
     
@@ -41,6 +43,7 @@ class OverlayPlane: SCNNode {
         planeNode.position = SCNVector3Make(anchor.center.x, 0, anchor.center.z);
         planeNode.transform = SCNMatrix4MakeRotation(Float(-Double.pi / 2.0), 1, 0.0, 0.0)
         //向（1,0,0) 座標轉 二分之π 即 90°
+        planeNode.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: self.planeGeometry, options: nil))
         self.addChildNode(planeNode)
     }
 
