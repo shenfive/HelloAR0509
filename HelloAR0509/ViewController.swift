@@ -53,7 +53,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         earthNode.position = SCNVector3(0, 0, -3)
         sceneView.scene.rootNode.addChildNode(earthNode)
         
-        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(taped(sender:)))
+        sceneView.addGestureRecognizer(gesture)
         
         
         
@@ -102,4 +103,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
     }
+    
+    @objc func taped(sender:UIGestureRecognizer){
+        let view = sender.view as! SCNView //由傳送者取得 ARView 的實體
+        let location = sender.location(in: view) //取得點選的畫面座標
+        let hitResult = view.hitTest(location, options: nil) //試試看能不能點到東西
+        if hitResult.isEmpty != true{
+            print("some thing!")
+        }else{
+            print("nothing!")
+        }
+    }
+
+    
 }
