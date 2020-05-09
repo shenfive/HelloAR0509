@@ -36,6 +36,28 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         node.position = SCNVector3(0, 0, -0.5) //設定 node 在空間的位置
         sceneView.scene.rootNode.addChildNode(node) //把 node 加入到目前的 scene 上
         
+        
+        let text = SCNText(string: "Hello Text in AR", extrusionDepth: 1.0)
+        text.firstMaterial?.diffuse.contents = UIColor.blue
+        
+        let textNode = SCNNode(geometry: text)
+        textNode.position = SCNVector3(0, 0.05, -0.5)
+        textNode.scale = SCNVector3(0.01, 0.01, 0.01)
+        
+        sceneView.scene.rootNode.addChildNode(textNode)
+        
+        
+        let earth = SCNSphere(radius: 0.3)
+        earth.firstMaterial?.diffuse.contents = UIImage(named: "worldmap")
+        let earthNode = SCNNode(geometry: earth)
+        earthNode.position = SCNVector3(0, 0, -3)
+        sceneView.scene.rootNode.addChildNode(earthNode)
+        
+        
+        
+        
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
