@@ -46,6 +46,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         sceneView.scene.rootNode.addChildNode(textNode)
         
+
+
+
         
         let earth = SCNSphere(radius: 0.3)
         earth.firstMaterial?.diffuse.contents = UIImage(named: "worldmap")
@@ -67,6 +70,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
 
+        configuration.planeDetection = .horizontal
         // Run the view's session
         sceneView.session.run(configuration)
     }
@@ -78,6 +82,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.pause()
     }
 
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        let plane = OverlayPlane(anchor: anchor as! ARPlaneAnchor) //產出自訂義的可視平台 self.planes.append(plane) //新增到 ViewController 的記錄中
+        node.addChildNode(plane) //把自訂義的可視元件，蓋一層到平台上
+    }
     // MARK: - ARSCNViewDelegate
     
 /*
@@ -115,6 +123,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 blue:  CGFloat(arc4random()) / CGFloat(UInt32.max),
                 alpha: 1.0)
             hitResult[0].node.geometry?.materials[0].diffuse.contents = randomColor
+            
+            
+            var position = hitResult[0].node.position
+            position = SCNVector3(position.x + 0.2, position.y, position.z)
+            hitResult[0].node.position = position
         }
     }
 

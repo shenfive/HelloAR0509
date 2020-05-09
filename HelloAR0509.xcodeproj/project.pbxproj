@@ -13,6 +13,8 @@
 		BA3695E02466786900F6DD78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA3695DE2466786900F6DD78 /* Main.storyboard */; };
 		BA3695E22466786A00F6DD78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA3695E12466786A00F6DD78 /* Assets.xcassets */; };
 		BA3695E52466786A00F6DD78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA3695E32466786A00F6DD78 /* LaunchScreen.storyboard */; };
+		BA3695ED24668DCA00F6DD78 /* OverlayPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3695EC24668DCA00F6DD78 /* OverlayPlane.swift */; };
+		BA3695EF24668ED400F6DD78 /* overlay_grid.png in Resources */ = {isa = PBXBuildFile; fileRef = BA3695EE24668ED400F6DD78 /* overlay_grid.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		BA3695E12466786A00F6DD78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA3695E42466786A00F6DD78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA3695E62466786A00F6DD78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA3695EC24668DCA00F6DD78 /* OverlayPlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayPlane.swift; sourceTree = "<group>"; };
+		BA3695EE24668ED400F6DD78 /* overlay_grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = overlay_grid.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +63,12 @@
 				BA3695D82466786900F6DD78 /* AppDelegate.swift */,
 				BA3695DA2466786900F6DD78 /* art.scnassets */,
 				BA3695DC2466786900F6DD78 /* ViewController.swift */,
+				BA3695EE24668ED400F6DD78 /* overlay_grid.png */,
 				BA3695DE2466786900F6DD78 /* Main.storyboard */,
 				BA3695E12466786A00F6DD78 /* Assets.xcassets */,
 				BA3695E32466786A00F6DD78 /* LaunchScreen.storyboard */,
 				BA3695E62466786A00F6DD78 /* Info.plist */,
+				BA3695EC24668DCA00F6DD78 /* OverlayPlane.swift */,
 			);
 			path = HelloAR0509;
 			sourceTree = "<group>";
@@ -126,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA3695DB2466786900F6DD78 /* art.scnassets in Resources */,
+				BA3695EF24668ED400F6DD78 /* overlay_grid.png in Resources */,
 				BA3695E52466786A00F6DD78 /* LaunchScreen.storyboard in Resources */,
 				BA3695E22466786A00F6DD78 /* Assets.xcassets in Resources */,
 				BA3695E02466786900F6DD78 /* Main.storyboard in Resources */,
@@ -140,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA3695DD2466786900F6DD78 /* ViewController.swift in Sources */,
+				BA3695ED24668DCA00F6DD78 /* OverlayPlane.swift in Sources */,
 				BA3695D92466786900F6DD78 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
