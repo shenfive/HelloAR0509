@@ -13,6 +13,8 @@ import ARKit
 class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
+    var planes:[OverlayPlane] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,18 +86,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         let plane = OverlayPlane(anchor: anchor as! ARPlaneAnchor) //產出自訂義的可視平台 self.planes.append(plane) //新增到 ViewController 的記錄中
+        self.planes.append(plane)
         node.addChildNode(plane) //把自訂義的可視元件，蓋一層到平台上
     }
-    // MARK: - ARSCNViewDelegate
-    
-/*
-    // Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let node = SCNNode()
-     
-        return node
+
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        if let plane = self.planes.filter { plane in
+            return plane.anchor.identifier == anchor.identifier
+        }.first{
+            plane.update(anchor: anchor as! ARPlaneAnchor)
+        }
     }
-*/
+    
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
